@@ -1,0 +1,29 @@
+#rmd {
+  position: absolute;
+  right: 50%;
+  top: 45px;
+  left: 0;
+  bottom: 0;
+  padding-right: 10px;
+}
+
+#knitDoc {
+  position: absolute;
+  left: 50%;
+  top: 45px;
+  right: 0;
+  bottom: 0;
+  padding-left: 10px;
+  overflow-y: scroll;
+}
+
+.out_of_sight {
+  position: absolute;
+  left: -99em;
+}
+
+#my_file, #my_save, #my_save_as {
+  position: absolute;
+  left: -99em;
+}
+
