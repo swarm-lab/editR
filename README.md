@@ -8,6 +8,8 @@ result of your writing and coding. It also allows you to render your
 [Rmarkdown](http://rmarkdown.rstudio.com/) file in any format permitted by the 
 [rmarkdown R package](https://github.com/rstudio/rmarkdown).  
 
+![Screenshot of editR window](https://raw.githubusercontent.com/swarm-lab/editR/master/editR_screenshot.png)
+
 #### Installation
 `editR` requires the installation of the latest versions of following libraries 
 on [CRAN](http://cran.r-project.org/):
