@@ -22,7 +22,7 @@
   left: -99em;
 }
 
-#my_file, #my_save, #my_save_as {
+#my_open, #my_save, #my_render {
   position: absolute;
   left: -99em;
 }

@@ -1,3 +1,10 @@
+library(shiny)
+library(shinyBS)
+library(shinyAce)
+library(shinyFiles)
+library(tools)
+library(rmarkdown)
+
 bsNavDropDown2 <- function (inputId, label, choices, ids, selected = "") {
   if (!inherits(label, "shiny.tag")) 
     label <- HTML(label)
@@ -18,6 +25,7 @@ bsNavDropDown2 <- function (inputId, label, choices, ids, selected = "") {
                  label, tags$b(class = "caret")), tags$ul(class = "dropdown-menu", choices))
 }
 
-setwd(tempdir())
-wd <- NULL
-md_name <- NULL
+setwd(md_path)
+
+if (!file.exists(md_name))
+  file.create(md_name)
