@@ -48,7 +48,7 @@ is a new file, it will be created at this location. You can also open an existin
 file from within `editR` using the `File > Open file` menu. 
 
 At the moment, it is not possible to create new files from within `editR`. It 
-will come when/if [shinyFiles](https://github.com/thomasp85/shinyFiles) is updated.
+will come when/if [`shinyFiles`](https://github.com/thomasp85/shinyFiles) is updated.
 
 For more information about authoring Rmarkdown files, visit 
 [http://rmarkdown.rstudio.com/](http://rmarkdown.rstudio.com/). 
@@ -61,5 +61,5 @@ Simon Garnier - [@sjmgarnier](https://twitter.com/sjmgarnier) -
 `editR` was built with [shiny](http://shiny.rstudio.com/) by [@rstudio](https://github.com/rstudio),
 and its extensions 
 [shinyBS](https://github.com/ebailey78/shinyBS) by [@ebailey78](https://github.com/ebailey78), 
-[shinyFiles](https://github.com/thomasp85/shinyFiles) by [thomaso85](https://github.com/thomasp85) and 
+[shinyFiles](https://github.com/thomasp85/shinyFiles) by [@thomaso85](https://github.com/thomasp85) and 
 [shinyAce](https://github.com/trestletech/shinyAce) by [@trestletech](https://github.com/trestletech)
