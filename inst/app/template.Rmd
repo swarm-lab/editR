@@ -1,7 +1,7 @@
 ---
 title: "Your title"
 author: Your name
-date: "`r format(Sys.time(), '%d %B, %Y')`"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
 output: html_document
 ---
 
