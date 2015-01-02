@@ -24,7 +24,7 @@ It also requires the installation of the development version of
 [GitHub](https://www.github.com).
 
 The following lines of code should install everything you need to run `editR` on
-your computer. 
+your computer: 
 
 ```{r}
 install.packages(c("shiny", "shinyBS", "shinyFiles", "rmarkdown"))
@@ -32,15 +32,34 @@ install.packages(c("shiny", "shinyBS", "shinyFiles", "rmarkdown"))
 if (!require("devtools")) install.packages("devtools")
 devtools::install_github("trestletech/shinyAce")
 devtools::install_github("swarm-lab/editR")
+
+library(editR)
 ```
+
+#### Usage
+To start `editR`, simply run this line of code in your R console:
+
+```{r}
+editR("path/to/file.Rmd")
+```
+
+with "path/to/file.Rmd" the path to a new or existing .Rmd (or .md) file. If this 
+is a new file, it will be created at this location. You can also open an existing
+file from within `editR` using the `File > Open file` menu. 
+
+At the moment, it is not possible to create new files from within `editR`. It 
+will come when/if [shinyFiles](https://github.com/thomasp85/shinyFiles) is updated.
+
+For more information about authoring Rmarkdown files, visit 
+[http://rmarkdown.rstudio.com/](http://rmarkdown.rstudio.com/). 
 
 #### Author(s)
 Simon Garnier - [@sjmgarnier](https://twitter.com/sjmgarnier) - 
 <garnier@njit.edu>
 
 #### References
-`editR` was built with [Shiny](http://shiny.rstudio.com/) by [@rstudio](https://github.com/rstudio),
+`editR` was built with [shiny](http://shiny.rstudio.com/) by [@rstudio](https://github.com/rstudio),
 and its extensions 
-[ShinyBS](https://github.com/ebailey78/shinyBS) by [@ebailey78](https://github.com/ebailey78), 
-[ShinyFiles](https://github.com/thomasp85/shinyFiles) by [thomaso85](https://github.com/thomasp85) and 
-[ShinyAce](https://github.com/trestletech/shinyAce) by [@trestletech](https://github.com/trestletech)
+[shinyBS](https://github.com/ebailey78/shinyBS) by [@ebailey78](https://github.com/ebailey78), 
+[shinyFiles](https://github.com/thomasp85/shinyFiles) by [thomaso85](https://github.com/thomasp85) and 
+[shinyAce](https://github.com/trestletech/shinyAce) by [@trestletech](https://github.com/trestletech)
