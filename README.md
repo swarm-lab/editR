@@ -26,7 +26,7 @@ It also requires the installation of the development version of
 The following lines of code should install everything you need to run `editR` on
 your computer. 
 
-```
+```{r}
 install.packages(c("shiny", "shinyBS", "shinyFiles", "rmarkdown"))
 
 if (!require("devtools")) install.packages("devtools")
