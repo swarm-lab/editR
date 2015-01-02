@@ -1,37 +1,39 @@
 \name{editR-package}
 \alias{editR-package}
-\alias{editR}
 \docType{package}
 \title{
-What the package does (short line)
+A basic Rmarkdown editor with instant preview
 }
 \description{
-More about what it does (maybe more than one line)
-~~ A concise (1-5 lines) description of the package ~~
+editR is a basic Rmarkdown editor with instant previewing of your document. It 
+allows you to create and edit \code{\link[<rmarkdown>:<rmarkdown>-package]{Rmarkdown}} 
+documents while instantly previewing the result of your writing and coding. It 
+also allows you to render your Rmarkdown file in any format permitted by the 
+\code{\link[<rmarkdown>:<rmarkdown>-package]{Rmarkdown}} package. It was built 
+using \code{\link[<shiny>:<shiny>-package]{shiny}} and its extensions 
+\code{\link[<shinyBS>:<shinyBS>-package]{shinyBS}}, 
+\code{\link[<shinyAce>:<shinyAce>-package]{shinyAce}},
+\code{\link[<shinyFiles>:<shinyFiles>-package]{shinyFiles}}.
 }
 \details{
 \tabular{ll}{
 Package: \tab editR\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2014-12-30\cr
-License: \tab GPL (>= 2)\cr
+Version: \tab 0.1\cr
+Date: \tab 2015-01-01\cr
+License: \tab GPL (>= 3)\cr
 }
-~~ An overview of how to use the package, including the most important functions ~~
 }
 \author{
-Your Name
-
-Maintainer: Your Name <your@email.com>
+Simon Garnier <garnier@njit.edu> - \href{http://twitter.com/sjmgarnier}{@sjmgarnier}
 }
 \references{
-~~ Literature or other references for background information ~~
 }
-~~ Optionally other standard keywords, one per line, from file KEYWORDS in the R documentation directory ~~
 \keyword{ package }
 \seealso{
-~~ Optional links to other man pages, e.g. ~~
-~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
+\code{\link[<rmarkdown>:<rmarkdown>-package]{rmarkdown}}, \code{\link[<shiny>:<shiny>-package]{shiny}},
+\code{\link[<shinyBS>:<shinyBS>-package]{shinyBS}}, \code{\link[<shinyAce>:<shinyAce>-package]{shinyAce}},
+\code{\link[<shinyFiles>:<shinyFiles>-package]{shinyFiles}}
 }
 \examples{
 %% ~~ simple examples of the most important functions ~~

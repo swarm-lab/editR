@@ -1,11 +1,11 @@
 Package: editR
 Type: Package
-Title: What the package does (short line)
-Version: 1.0
-Date: 2014-12-30
-Author: Your Name
-Maintainer: Your Name <your@email.com>
-Description: More about what it does (maybe more than one line)
-License: GPL (>= 2)
-Imports: Rcpp (>= 0.11.3)
+Title: A basic Rmarkdown editor with instant preview
+Version: 0.1
+Date: 2015-01-01
+Author: Simon Garnier <garnier@njit.edu>
+Maintainer: Simon Garnier <garnier@njit.edu>
+Description: editR is a basic Rmarkdown editor with instant previewing of your document. It allows you to create and edit Rmarkdown documents while instantly previewing the result of your writing and coding. It also allows you to render your Rmarkdown file in any format permitted by the 'rmarkdown' package. 
+License: GPL (>= 3)
+Imports: Rcpp (>= 0.11.3), shiny (>= 0.10.2.2), shinyBS (>= 0.20), shinyAce (>= 0.2.0), shinyFiles (>= 0.4.0), rmarkdown (>= 0.4.2)
 LinkingTo: Rcpp

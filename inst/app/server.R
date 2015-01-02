@@ -19,6 +19,7 @@ shinyServer(function(input, output, session) {
   observe({
     if (!is.null(input$my_open)) {
       file <- as.character(parseFilePaths(roots = c(Computer = "~/"), input$my_open)[1, 4])
+      file <- normalizePath(file)
       
       md_name <<- basename(file)
       md_path <<- dirname(file)

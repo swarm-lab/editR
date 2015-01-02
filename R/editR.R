@@ -9,6 +9,8 @@ editR <- function(file) {
   if (ext != "md" & ext != "rmd") 
     stop("'file' is not a .Rmd or .md file.")
   
+  file <- suppressWarnings(normalizePath(file))
+  
   md_name <- basename(file)
   md_path <- dirname(file)
   assign("md_name", md_name, envir=globalenv())

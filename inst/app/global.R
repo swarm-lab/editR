@@ -27,5 +27,13 @@ bsNavDropDown2 <- function (inputId, label, choices, ids, selected = "") {
 
 setwd(md_path)
 
-if (!file.exists(md_name))
-  file.create(md_name)
+if (!file.exists(md_name)) {
+  template_path <- paste0(find.package("editR"), "/app/template.Rmd")
+  template <- readChar(template_path, file.info(template_path)$size)
+  cat(template, file = md_name)
+}
+
+
+
+
+
