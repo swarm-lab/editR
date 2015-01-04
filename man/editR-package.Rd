@@ -19,7 +19,7 @@ using \code{\link[<shiny>:<shiny>-package]{shiny}} and its extensions
 \tabular{ll}{
 Package: \tab editR\cr
 Type: \tab Package\cr
-Version: \tab 0.1\cr
+Version: \tab 0.1.1\cr
 Date: \tab 2015-01-01\cr
 License: \tab GPL (>= 3)\cr
 }

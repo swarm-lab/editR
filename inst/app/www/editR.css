@@ -7,7 +7,7 @@
   padding-right: 10px;
 }
 
-#knitDoc {
+#knit_doc {
   position: absolute;
   left: 50%;
   top: 45px;
@@ -17,13 +17,13 @@
   overflow-y: scroll;
 }
 
-.out_of_sight {
+#my_open {
   position: absolute;
   left: -99em;
 }
 
-#my_open, #my_save, #my_render {
-  position: absolute;
-  left: -99em;
+.hr_menu {
+  margin: 0px;
 }
+
 

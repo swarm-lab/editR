@@ -17,25 +17,11 @@ $(document).ready(function() {
   });
   
   jQuery(function($){
-      $('#save').on('click', function(e){
-          e.preventDefault();
-          $('#my_save').click();
-      });
-  });
-  
-  jQuery(function($){
       $(document).keydown(function(e) {
           if((e.ctrlKey || e.metaKey) && e.which == 83) {
               e.preventDefault();
               $('#save').click();
           };
-      });
-  });
-  
-  jQuery(function($){
-      $('#render').on('click', function(e){
-          e.preventDefault();
-          $('#my_render').click();
       });
   });
   

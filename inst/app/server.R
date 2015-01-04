@@ -32,8 +32,49 @@ shinyServer(function(input, output, session) {
   ### ###
   
   
+  ### View menu logic ###
+  observe({
+    if (input$ef_plus > 0) {
+      opts$editor_font_size <<- opts$editor_font_size + 1
+      options(editR = opts)
+      isolate({updateAceEditor(session, "rmd", fontSize = opts$editor_font_size)})
+    }
+  })
+  
+  observe({
+    if (input$ef_minus > 0) {
+      opts$editor_font_size <<- opts$editor_font_size - 1
+      options(editR = opts)
+      isolate({updateAceEditor(session, "rmd", fontSize = opts$editor_font_size)})
+    }
+  })
+  
+  output$pf_plus <- renderUI({
+    if (input$pf_plus > 0) {
+      opts$preview_font_size <<- opts$preview_font_size * 1.1
+      options(editR = opts)
+    }
+    
+    tags$head(tags$style(
+      HTML(paste0("#knit_doc *{font-size: ", opts$preview_font_size, "em;}"))
+    ))
+  })
+  
+  output$pf_minus <- renderUI({
+    if (input$pf_minus > 0) {
+      opts$preview_font_size <<- opts$preview_font_size * (1 / 1.1)
+      options(editR = opts)
+      
+      tags$head(tags$style(
+        HTML(paste0("#knit_doc *{font-size: ", opts$preview_font_size, "em;}"))
+      ))
+    }
+  })
+  ###
+  
+  
   ### Update preview logic ###
-  output$knitDoc <- renderUI({
+  output$knit_doc <- renderUI({
     input$rmd
     return(isolate(HTML(
       tryCatch(suppressWarnings(knit2html(text = input$rmd, fragment.only = TRUE, quiet = TRUE)),
@@ -45,7 +86,7 @@ shinyServer(function(input, output, session) {
   
   ### Render file logic ###
   observe({
-    if (input$my_render > 0 | !is.null(input$render_key)){
+    if (input$render > 0 | !is.null(input$render_key)){
       isolate({
         cat(input$rmd, file = md_name)
         doc <- render(md_name)
@@ -58,7 +99,7 @@ shinyServer(function(input, output, session) {
   
   ### Save file logic ###
   observe({
-    if (input$my_save > 0 | !is.null(input$save_key)){
+    if (input$save > 0 | !is.null(input$save_key)){
       isolate({cat(input$rmd, file = md_name)})
     }
   })
