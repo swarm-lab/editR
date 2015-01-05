@@ -1,10 +1,5 @@
 ### Load libraries ###
 library(shiny)
-library(shinyBS)
-library(shinyAce)
-library(shinyFiles)
-library(tools)
-library(rmarkdown)
 ### ###
 
 
@@ -44,7 +39,7 @@ opts <- getOption("editR")
 options(editR = 
           list(
             editor_font_size = ifelse(is.null(opts$editor_font_size), 14, opts$editor_font_size),
-            #editor_theme = ifelse(is.null(opts$editor_theme), "tomorrow", opts$editor_theme),
+            editor_theme = ifelse(is.null(opts$editor_theme), "tomorrow", opts$editor_theme),
             preview_font_size = ifelse(is.null(opts$preview_font_size), 1, opts$preview_font_size)
           )
 )
@@ -60,6 +55,8 @@ if (!file.exists(md_name)) {
   template <- readChar(template_path, file.info(template_path)$size)
   cat(template, file = md_name)
 }
+
+md_bak <- NULL
 ### ###
 
 

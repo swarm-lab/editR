@@ -1,13 +1,17 @@
+### Load libraries ###
 library(shiny)
 library(shinyAce)
 library(shinyFiles)
-library(tools)
 library(knitr)
+library(rmarkdown)
+### ###
+
 
 shinyServer(function(input, output, session) {
   
   ### Init logic###
   md_file <- readChar(md_name, file.info(md_name)$size)
+  md_bak <<- md_file
   isolate({updateAceEditor(session, "rmd", value = md_file)})
   ### ###
   
@@ -74,15 +78,29 @@ shinyServer(function(input, output, session) {
   
   
   ### Update preview logic ###
+  #   output$knit_doc <- renderUI({
+  #     input$rmd
+  #     return(isolate(HTML(
+  #       tryCatch(
+  #         suppressWarnings(knit2html(text = input$rmd, fragment.only = TRUE, quiet = TRUE)),
+  #         error = function(e) "<div></div>")
+  #     )))
+  #   })
+  
   output$knit_doc <- renderUI({
     input$rmd
-    return(isolate(HTML(
-      tryCatch(suppressWarnings(knit2html(text = input$rmd, fragment.only = TRUE, quiet = TRUE)),
-               error = function(e) "<div></div>")
-    )))
+    md <- isolate(tryCatch(suppressWarnings(knit2html(text = input$rmd, fragment.only = TRUE, quiet = TRUE)),
+                           error = function(e) {FALSE}))
+    if (md == FALSE) {
+      md <- md_bak
+      md <- paste(md, tags$style(paste0("#knit_doc *{opacity: 0.5;}")))
+    } else {
+      md_bak <<- md
+    }
+    return(HTML(md))
   })
   ### ###
-  
+    
   
   ### Render file logic ###
   observe({

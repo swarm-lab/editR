@@ -1,7 +1,7 @@
 Package: editR
 Type: Package
 Title: A basic Rmarkdown editor with instant preview
-Version: 0.1.1
+Version: 0.1.2
 Date: 2015-01-01
 Author: Simon Garnier <garnier@njit.edu>
 Maintainer: Simon Garnier <garnier@njit.edu>

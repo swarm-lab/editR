@@ -1,3 +1,11 @@
+### Load libraries ###
+library(shiny)
+library(shinyBS)
+library(shinyAce)
+library(shinyFiles)
+### ###
+
+
 shinyUI(
   bootstrapPage(
     tags$head(
