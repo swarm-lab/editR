@@ -1,6 +1,8 @@
 editR
 =====
 
+[Release notes](https://github.com/swarm-lab/editR/blob/master/RELEASE_NOTES.md)
+
 `editR` is a basic [Rmarkdown](http://rmarkdown.rstudio.com/) editor with instant 
 previewing of your document. It allows you to create and edit 
 [Rmarkdown](http://rmarkdown.rstudio.com/) documents while instantly previewing the 
