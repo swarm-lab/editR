@@ -38,6 +38,15 @@ devtools::install_github("swarm-lab/editR")
 library(editR)
 ```
 
+Finally, to render documents in various output formats (.html, .pdf, .docx), 
+`editR` uses the [`render`](http://www.rdocumentation.org/packages/rmarkdown/functions/render) 
+function from the [`rmarkdown`](http://cran.r-project.org/web/packages/rmarkdown/index.html) 
+package. This function requires the installation of [`pandoc`](http://johnmacfarlane.net/pandoc/) 
+to work. Installation instructions for `pandoc` can be found at: 
+[http://johnmacfarlane.net/pandoc/installing.html](http://johnmacfarlane.net/pandoc/installing.html). 
+For Mac users, I recommend that you install `pandoc` via [Homebrew](http://brew.sh/) or 
+[MacPorts](https://www.macports.org/). 
+
 #### Usage
 To start `editR`, simply run this line of code in your R console:
 
