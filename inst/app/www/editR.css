@@ -1,17 +1,13 @@
 #rmd {
   position: absolute;
-  right: 50%;
   top: 45px;
-  left: 0;
   bottom: 0;
   padding-right: 10px;
 }
 
 #knit_doc {
   position: absolute;
-  left: 50%;
   top: 45px;
-  right: 0;
   bottom: 0;
   padding-left: 10px;
   overflow-y: scroll;

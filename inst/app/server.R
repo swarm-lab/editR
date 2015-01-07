@@ -13,7 +13,7 @@ shinyServer(function(input, output, session) {
   md_file <- readChar(md_name, file.info(md_name)$size)
   md_bak <<- md_file
   isolate({updateAceEditor(session, "rmd", value = md_file)})
-  react <- reactiveValues(view = "dual")
+  react <- reactiveValues(view = "dual", refresh = -1)
   ### ###
   
   
@@ -93,17 +93,22 @@ shinyServer(function(input, output, session) {
   output$view <- renderUI({
     if (react$view == "ed_only") {
       tags$head(tags$style(
-        HTML("#rmd {right: 0%;} #knit_doc{left: 100%;}")
+        HTML("#rmd {right: 0%; left: 0%;} #knit_doc{left: 200%; right: -100%;}")
       ))
     } else if (react$view == "pr_only") {
       tags$head(tags$style(
-        HTML(paste0("#rmd {right: 100%;} #knit_doc{left: 0%;}"))
+        HTML(paste0("#rmd {right: 200%; left: -100%;} #knit_doc{left: 0%; right: 0%;}"))
       ))
     } else {
       tags$head(tags$style(
-        HTML(paste0("#rmd {right: 50%;} #knit_doc{left: 50%;}"))
+        HTML(paste0("#rmd {right: 50%; left: 0%;} #knit_doc{left: 50%; right: 0%;}"))
       ))
     }
+  })
+  
+  observe({
+    invalidateLater(50, session)
+    isolate({updateAceEditor(session, "rmd", theme = .Options$editR$editor_theme)})
   })
   ###
   

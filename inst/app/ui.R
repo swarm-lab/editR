@@ -20,9 +20,9 @@ shinyUI(
     bsNavBar("nav", brand = "editR", fixed = FALSE,
              leftItems = list(
                bsNavDropDown2(inputId = "dd1", label = "File", 
-                              choices = list(c("Open file [Ctrl-O]", "open"), 
-                                             c("Save file [Ctrl-S]", "save"),
-                                             c("Render file [Ctrl-R]", "render"))
+                              choices = list(c("Open file", "open"), 
+                                             c("Save file", "save"),
+                                             c("Render file", "render"))
                ),
                bsNavDropDown2(inputId = "dd1", label = "View", 
                               choices = list(c("Editor only", "ed_only"), 
