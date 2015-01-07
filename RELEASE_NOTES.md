@@ -3,6 +3,11 @@ Release notes
 
 ---
 
+- **0.1.3**:
+    - Added possibility to display editor or preview only. 
+    
+---
+
 - **0.1.2**:
     - Added file containing release notes. 
     - When editR cannot parse the markdown file without error, it shows the 

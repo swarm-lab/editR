@@ -25,7 +25,11 @@ shinyUI(
                                              c("Render file [Ctrl-R]", "render"))
                ),
                bsNavDropDown2(inputId = "dd1", label = "View", 
-                              choices = list(c("Editor font size +", "ef_plus"), 
+                              choices = list(c("Editor only", "ed_only"), 
+                                             c("Preview only", "pr_only"),
+                                             c("Dual view", "dual"),
+                                             c("~sep~"),
+                                             c("Editor font size +", "ef_plus"), 
                                              c("Editor font size -", "ef_minus"),
                                              c("~sep~"),
                                              c("Preview font size +", "pf_plus"),
@@ -33,10 +37,10 @@ shinyUI(
                )
              )),    
     
-    aceEditor("rmd", mode = "markdown", wordWrap = TRUE, fontSize = opts$editor_font_size,
-              theme = opts$editor_theme, debounce = 10, autoComplete = "live", height = "auto"),
+    aceEditor("rmd", mode = "markdown", wordWrap = TRUE, fontSize = .Options$editR$editor_font_size,
+              theme = .Options$editR$editor_theme, debounce = 10, autoComplete = "live", height = "auto"),
     
-    uiOutput("pf_plus"), uiOutput("pf_minus"),
+    uiOutput("pf_plus"), uiOutput("pf_minus"), uiOutput("view"),
     
     htmlOutput("knit_doc")
   )

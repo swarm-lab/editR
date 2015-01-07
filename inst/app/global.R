@@ -35,15 +35,12 @@ bsNavDropDown2 <- function (inputId, label, choices, ids, selected = "") {
 
 
 ### Set options ###
-opts <- getOption("editR")
-options(editR = 
-          list(
-            editor_font_size = ifelse(is.null(opts$editor_font_size), 14, opts$editor_font_size),
-            editor_theme = ifelse(is.null(opts$editor_theme), "tomorrow", opts$editor_theme),
-            preview_font_size = ifelse(is.null(opts$preview_font_size), 1, opts$preview_font_size)
-          )
-)
-opts <- getOption("editR")
+.Options$editR$editor_font_size <- ifelse(is.null(.Options$editR$editor_font_size), 
+                                          14, .Options$editR$editor_font_size)
+.Options$editR$editor_theme <- ifelse(is.null(.Options$editR$editor_theme), 
+                                      "tomorrow", .Options$editR$editor_theme)
+.Options$editR$preview_font_size <- ifelse(is.null(.Options$editR$preview_font_size), 
+                                           1, .Options$editR$preview_font_size)
 ### ###
 
 
