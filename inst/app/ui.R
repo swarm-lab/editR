@@ -19,12 +19,12 @@ shinyUI(
     # Navigation bar
     bsNavBar("nav", brand = "editR", fixed = FALSE,
              leftItems = list(
-               bsNavDropDown2(inputId = "dd1", label = "File", 
+               bsNavDropDown2(inputId = "File", label = "File", 
                               choices = list(c("Open file", "open"), 
                                              c("Save file", "save"),
                                              c("Render file", "render"))
                ),
-               bsNavDropDown2(inputId = "dd1", label = "View", 
+               bsNavDropDown2(inputId = "View", label = "View", 
                               choices = list(c("Editor only", "ed_only"), 
                                              c("Preview only", "pr_only"),
                                              c("Dual view", "dual"),
@@ -34,6 +34,11 @@ shinyUI(
                                              c("~sep~"),
                                              c("Preview font size +", "pf_plus"),
                                              c("Preview font size -", "pf_minus"))
+               ),
+               bsNavDropDown2(inputId = "Help", label = "Help", 
+                              choices = list(c("Keyboard shortcuts", "keys"), 
+                                             c("~sep~"),
+                                             c("About editR", "about"))
                )
              )),    
     
@@ -42,7 +47,10 @@ shinyUI(
     
     uiOutput("pf_plus"), uiOutput("pf_minus"), uiOutput("view"),
     
-    htmlOutput("knit_doc")
+    htmlOutput("knit_doc"),
+    
+    bsModal("k_s", "Keyboard shortcuts", trigger = "keys", href = "keyboard_shortcuts.html"),
+    bsModal("info", "About", trigger = "about", href = "about.html")
   )
 )
 

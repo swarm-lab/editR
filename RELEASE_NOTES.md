@@ -3,6 +3,11 @@ Release notes
 
 ---
 
+- **0.1.4**:
+    - Added 'Help' menu with 'About' submenu and 'Keyboard shorcuts' submenu. 
+    
+---
+
 - **0.1.3**:
     - Added possibility to display editor or preview only. 
     

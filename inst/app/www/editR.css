@@ -22,4 +22,17 @@
   margin: 0px;
 }
 
+tr.border_bottom td {
+  border-bottom: 1pt solid black;
+}
+
+tr.padding_top td {
+  padding-top: 0.5em;
+}
+
+tr.padding_bottom td {
+  padding-bottom: 0.5em;
+}
+
+
 

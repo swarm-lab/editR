@@ -17,22 +17,23 @@ result of your writing and coding. It also allows you to render your
 on [CRAN](http://cran.r-project.org/):
 
 1. [`shiny`](http://cran.r-project.org/web/packages/shiny/index.html)
-2. [`shinyBS`](http://cran.r-project.org/web/packages/shinyBS/index.html)
-3. [`shinyFiles`](http://cran.r-project.org/web/packages/shinyFiles/index.html)
-4. [`rmarkdown`](http://cran.r-project.org/web/packages/rmarkdown/index.html)
+2. [`shinyFiles`](http://cran.r-project.org/web/packages/shinyFiles/index.html)
+3. [`rmarkdown`](http://cran.r-project.org/web/packages/rmarkdown/index.html)
 
-It also requires the installation of the development version of 
-[`shinyAce`](https://github.com/trestletech/shinyAce) hosted on
-[GitHub](https://www.github.com).
+It also requires the installation of the development versions of 
+[`shinyAce`](https://github.com/trestletech/shinyAce) and 
+[`shinyBS`](https://github.com/ebailey78/shinyBS) 
+both hosted on [GitHub](https://www.github.com).
 
 The following lines of code should install everything you need to run `editR` on
 your computer: 
 
 ```{r}
-install.packages(c("shiny", "shinyBS", "shinyFiles", "rmarkdown"))
+install.packages(c("shiny", "shinyFiles", "rmarkdown"))
 
 if (!require("devtools")) install.packages("devtools")
 devtools::install_github("trestletech/shinyAce")
+devtools::install_github("ebailey78/shinyBS")
 devtools::install_github("swarm-lab/editR")
 
 library(editR)

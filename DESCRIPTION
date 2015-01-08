@@ -1,8 +1,8 @@
 Package: editR
 Type: Package
 Title: A basic Rmarkdown editor with instant preview
-Version: 0.1.3
-Date: 2015-01-01
+Version: 0.1.4
+Date: 2015-01-08
 Author: Simon Garnier <garnier@njit.edu>
 Maintainer: Simon Garnier <garnier@njit.edu>
 Description: editR is a basic Rmarkdown editor with instant previewing of your document. It allows you to create and edit Rmarkdown documents while instantly previewing the result of your writing and coding. It also allows you to render your Rmarkdown file in any format permitted by the 'rmarkdown' package. 
