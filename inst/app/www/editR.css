@@ -1,3 +1,5 @@
+/* App formating */
+
 #rmd {
   position: absolute;
   top: 45px;
@@ -33,6 +35,83 @@ tr.padding_top td {
 tr.padding_bottom td {
   padding-bottom: 0.5em;
 }
+
+
+
+
+/* Preview formatting */
+
+body {
+  counter-reset: h1;
+}
+
+#knit_doc h1 {
+  font-size: 2em;
+  counter-reset: h2;
+}
+
+#knit_doc h2 {
+  font-size: 1.8em;
+  counter-reset: h3;
+}
+
+#knit_doc h3 {
+  font-size: 1.6em;
+  counter-reset: h4;
+}
+
+#knit_doc h4 {
+  font-size: 1.4em;
+  counter-reset: h5;
+}
+
+#knit_doc h5 {
+  font-size: 1.2em;
+  counter-reset: h6;
+}
+
+#knit_doc h6 {
+  font-size: 1em;
+}
+
+#knit_doc h1:before {
+  counter-increment: h1; 
+  content: counter(h1) ". "
+}
+
+#knit_doc h2:before {
+  counter-increment: h2; 
+  content: counter(h1) "." counter(h2) ". "
+}
+
+#knit_doc h3:before {
+  counter-increment: h3; 
+  content: counter(h1) "." counter(h2) "." counter(h3) ". "
+}
+
+#knit_doc h4:before {
+  counter-increment: h4; 
+  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) ". "
+}
+
+#knit_doc h5:before {
+  counter-increment: h5; 
+  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". "
+}
+
+#knit_doc h6:before {
+  counter-increment: h6; 
+  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". "
+}
+
+
+
+
+
+
+
+
+
 
 
 
