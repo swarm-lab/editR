@@ -4,5 +4,5 @@ preview <- function(rmd) {
     rmd <- sub("\n\n", "", rmd)
   }
   
-  paste("`r opts_chunk$set(cache = TRUE)`\n", rmd)
+  paste("`r opts_chunk$set(cache = TRUE, autodep = TRUE)`\n", rmd)
 }
