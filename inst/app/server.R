@@ -116,7 +116,8 @@ shinyServer(function(input, output, session) {
   ### Update preview logic ###
   output$knit_doc <- renderUI({
     input$rmd
-    md <- isolate(tryCatch(suppressWarnings(knit2html(text = input$rmd, fragment.only = TRUE, quiet = TRUE)),
+    md <- isolate(tryCatch(suppressWarnings(knit2html(text = preview(input$rmd), 
+                                                      fragment.only = TRUE, quiet = TRUE)),
                            error = function(e) {FALSE}))
     if (md == FALSE) {
       md <- md_bak
