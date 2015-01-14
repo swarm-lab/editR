@@ -36,8 +36,13 @@ tr.padding_bottom td {
   padding-bottom: 0.5em;
 }
 
+#e_theme_mod .modal-body {
+  height: 20em;
+}
 
-
+#editor_theme + div.modal-backdrop.fade.in {
+  opacity: 0.001;
+}
 
 /* Preview formatting */
 

@@ -31,6 +31,7 @@ shinyUI(
                                              c("~sep~"),
                                              c("Editor font size +", "ef_plus"), 
                                              c("Editor font size -", "ef_minus"),
+                                             c("Editor theme", "e_theme"),
                                              c("~sep~"),
                                              c("Preview font size +", "pf_plus"),
                                              c("Preview font size -", "pf_minus"))
@@ -50,7 +51,8 @@ shinyUI(
     htmlOutput("knit_doc"),
     
     bsModal("k_s", "Keyboard shortcuts", trigger = "keys", href = "keyboard_shortcuts.html"),
-    bsModal("info", "About", trigger = "about", href = "about.html")
+    bsModal("info", "About", trigger = "about", href = "about.html"),
+    uiOutput("editor_theme")
   )
 )
 

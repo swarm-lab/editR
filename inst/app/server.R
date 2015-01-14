@@ -110,6 +110,20 @@ shinyServer(function(input, output, session) {
     invalidateLater(50, session)
     isolate({updateAceEditor(session, "rmd", theme = .Options$editR$editor_theme)})
   })
+  
+  output$editor_theme <- renderUI({
+    bsModal("e_theme_mod", "Choose editor theme", trigger = "e_theme",
+            tags$div(width = "100%", align = "center",
+                     selectInput("e_theme_choice", "", choices = getAceThemes(), 
+                                 selected = .Options$editR$editor_theme))
+    )
+  })
+  
+  observe({
+    .Options$editR$editor_theme <<- input$e_theme_choice
+    isolate({updateAceEditor(session, "rmd", theme = .Options$editR$editor_theme)})
+  })
+  
   ###
   
   
