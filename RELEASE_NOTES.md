@@ -3,6 +3,13 @@ Release notes
 
 ---
 
+- **0.1.5**:
+    - Added menu item to select editor theme. 
+    - Added automatic caching of code chunks to speed up preview. 
+    - Added automatic numbering of headings. 
+    
+---
+
 - **0.1.4**:
     - Added 'Help' menu with 'About' submenu and 'Keyboard shorcuts' submenu. 
     
