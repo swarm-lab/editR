@@ -10,7 +10,7 @@ result of your writing and coding. It also allows you to render your
 [Rmarkdown](http://rmarkdown.rstudio.com/) file in any format permitted by the 
 [`rmarkdown`](https://github.com/rstudio/rmarkdown) R package.  
 
-![Screenshot of editR window](https://raw.githubusercontent.com/swarm-lab/editR/master/editR_screenshot.png)
+![Screenshot of editR window](https://raw.githubusercontent.com/swarm-lab/editR/master/editR_screenshot.jpg)
 
 #### Installation
 `editR` requires the installation of the latest versions of following libraries 
