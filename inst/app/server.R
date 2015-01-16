@@ -137,7 +137,7 @@ shinyServer(function(input, output, session) {
             knit2html(text = preview(input$rmd), 
                       fragment.only = TRUE, quiet = TRUE))),
         error = function(e) {FALSE})))
-    if (!md) {
+    if (md == FALSE) {
       md <- md_bak
       md <- paste(md, tags$style(paste0("#knit_doc *{opacity: 0.5;}")))
     } else {
