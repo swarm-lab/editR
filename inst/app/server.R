@@ -152,7 +152,7 @@ shinyServer(function(input, output, session) {
   observe({
     if (input$render > 0 | !is.null(input$render_key)){
       isolate({
-        cat(input$rmd, file = md_name)
+        writeChar(input$rmd, con = md_name)
         doc <- render(md_name)
         browseURL(doc)
       })
