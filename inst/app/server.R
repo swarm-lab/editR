@@ -164,7 +164,7 @@ shinyServer(function(input, output, session) {
   ### Save file logic ###
   observe({
     if (input$save > 0 | !is.null(input$save_key)){
-      isolate({cat(input$rmd, file = md_name)})
+      isolate({writeChar(input$rmd, con = md_name)})
     }
   })
   ### ###
