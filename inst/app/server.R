@@ -123,8 +123,7 @@ shinyServer(function(input, output, session) {
     .Options$editR$editor_theme <<- input$e_theme_choice
     isolate({updateAceEditor(session, "rmd", theme = .Options$editR$editor_theme)})
   })
-  
-  ###
+  ### ###
   
   
   ### Update preview logic ###

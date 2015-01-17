@@ -34,7 +34,10 @@ shinyUI(
                                              c("Editor theme", "e_theme"),
                                              c("~sep~"),
                                              c("Preview font size +", "pf_plus"),
-                                             c("Preview font size -", "pf_minus"))
+                                             c("Preview font size -", "pf_minus"),
+                                             c("~sep~"),
+                                             c("Toggle auto-scroll", "auto_scroll")
+                              )
                ),
                bsNavDropDown2(inputId = "Help", label = "Help", 
                               choices = list(c("Keyboard shortcuts", "keys"), 
@@ -44,7 +47,7 @@ shinyUI(
              )),    
     
     aceEditor("rmd", mode = "markdown", wordWrap = TRUE, fontSize = .Options$editR$editor_font_size,
-              theme = .Options$editR$editor_theme, debounce = 10, autoComplete = "live", height = "auto"),
+              theme = .Options$editR$editor_theme, debounce = 100, autoComplete = "enabled", height = "auto"),
     
     uiOutput("pf_plus"), uiOutput("pf_minus"), uiOutput("view"),
     
