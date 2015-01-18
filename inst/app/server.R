@@ -7,7 +7,7 @@ library(rmarkdown)
 ### ###
 
 
-shinyServer(function(input, output, session) {
+shinybootstrap2::withBootstrap2(function(input, output, session) {
   
   ### Init logic###
   md_file <- readChar(md_name, file.info(md_name)$size)

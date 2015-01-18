@@ -6,7 +6,7 @@ library(shinyFiles)
 ### ###
 
 
-shinyUI(
+shinybootstrap2::withBootstrap2(
   bootstrapPage(
     tags$head(
       tags$link(rel = "stylesheet", type = "text/css", href = "editR.css"),

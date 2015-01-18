@@ -1,6 +1,11 @@
 editR
 =====
 
+**WARNING: if you have updated `shiny` to its most recent version on CRAN (>=0.11),
+you need to reinstall `editR` following the new instructions below. `shiny` was 
+upgraded to use Bootstrap3 instead of Bootstrap2 and this will create 
+inconsistencies in `editR`'s GUI if you don't reinstall it.**
+
 [Release notes](https://github.com/swarm-lab/editR/blob/master/RELEASE_NOTES.md)
 
 `editR` is a basic [Rmarkdown](http://rmarkdown.rstudio.com/) editor with instant 
@@ -21,6 +26,7 @@ on [CRAN](http://cran.r-project.org/):
 3. [`rmarkdown`](http://cran.r-project.org/web/packages/rmarkdown/index.html)
 
 It also requires the installation of the development versions of 
+[`shinybootstrap2`](https://github.com/rstudio/shinybootstrap2)
 [`shinyAce`](https://github.com/trestletech/shinyAce) and 
 [`shinyBS`](https://github.com/ebailey78/shinyBS) 
 both hosted on [GitHub](https://www.github.com).
@@ -32,6 +38,7 @@ your computer:
 install.packages(c("shiny", "shinyFiles", "rmarkdown"))
 
 if (!require("devtools")) install.packages("devtools")
+devtools::install_github('rstudio/shinybootstrap2')
 devtools::install_github("trestletech/shinyAce")
 devtools::install_github("ebailey78/shinyBS")
 devtools::install_github("swarm-lab/editR")

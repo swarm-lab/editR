@@ -3,6 +3,13 @@ Release notes
 
 ---
 
+- **0.1.6**:
+    - Added an experimental autoscroll function. Deactivated by default until it works well with documents containing many code chunks. 
+    - Updated installation instructions and code to accomodate the transition of `shiny` from Bootstrap2 to Bootstrap3. 
+    - Corrected a number of bugs listed [here](https://github.com/swarm-lab/editR/compare/v0.1.5...master).
+    
+---
+
 - **0.1.5**:
     - Added menu item to select editor theme. 
     - Added automatic caching of code chunks to speed up preview. 
