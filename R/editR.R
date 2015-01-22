@@ -1,6 +1,6 @@
 #' Edit Rmarkdown files with instant preview
 #'
-#' This function create a GUI to edit \code{\link[<rmarkdown>:<rmarkdown>-package]{Rmarkdown}} 
+#' This function creates a GUI to edit \code{\link[<rmarkdown>:<rmarkdown>-package]{Rmarkdown}} 
 #' documents and display an instant preview of the document as it is being 
 #' written. Rmarkdown documents can be rendered directly from the GUI. 
 #' 
