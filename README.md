@@ -20,6 +20,8 @@ installation process and it will make possible to submit the `editR` package to
 
 [Release notes](https://github.com/swarm-lab/editR/blob/master/RELEASE_NOTES.md)
 
+---
+
 `editR` is a basic [Rmarkdown](http://rmarkdown.rstudio.com/) editor with instant 
 previewing of your document. It allows you to create and edit 
 [Rmarkdown](http://rmarkdown.rstudio.com/) documents while instantly previewing the 
@@ -28,6 +30,8 @@ result of your writing and coding. It also allows you to render your
 [`rmarkdown`](https://github.com/rstudio/rmarkdown) R package.  
 
 ![Screenshot of editR window](https://raw.githubusercontent.com/swarm-lab/editR/master/editR_screenshot.jpg)
+
+---
 
 #### Installation
 Installing `editR` from this GitHub repository is now pretty straightforward. 
@@ -60,6 +64,8 @@ to work. Installation instructions for `pandoc` can be found at:
 For Mac users, I recommend that you install `pandoc` via [Homebrew](http://brew.sh/) or 
 [MacPorts](https://www.macports.org/). 
 
+---
+
 #### Usage
 To start `editR`, simply run this line of code in your R console:
 
@@ -83,9 +89,13 @@ withing the user interface of `editR`.
 For more information about authoring Rmarkdown files, visit 
 [http://rmarkdown.rstudio.com/](http://rmarkdown.rstudio.com/). 
 
+---
+
 #### Author(s)
 Simon Garnier - [@sjmgarnier](https://twitter.com/sjmgarnier) - 
 <garnier@njit.edu>
+
+---
 
 #### References
 `editR` was built with [`shiny`](http://shiny.rstudio.com/) by [@rstudio](https://github.com/rstudio),
