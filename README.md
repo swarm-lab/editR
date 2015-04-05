@@ -10,10 +10,9 @@ following:**
 [Twitter Bootstrap](http://getbootstrap.com/) version 3 instead of version 2 as 
 in the previous releases.**
 
-**- `editR` now relies entirely on packages available through [CRAN](http://cran.r-project.org/)
-and not on experimental packages as previously. This will facilitate the 
-installation process and it will make possible to submit the `editR` package to 
-[CRAN](http://cran.r-project.org/) in the near future.**
+**- `editR` now relies (almost) entirely on packages available through 
+[CRAN](http://cran.r-project.org/) and not on a large number of experimental 
+packages as previously. This will facilitate the installation process.**
 
 **As a consequence of these modifications I strongly recommend that you reinstall 
 `editR` following the new instructions below.**
@@ -40,20 +39,25 @@ everything you need to run `editR` on your computer:
 
 ```{r}
 if (!require("devtools")) install.packages("devtools")
+devtools::install_github("trestletech/shinyAce")
 devtools::install_github("swarm-lab/editR")
 
 library(editR)
 ```
 
-`editR` requires the installation of the latest versions of following libraries 
+`editR` requires the installation of the latest versions of following packages 
 on [CRAN](http://cran.r-project.org/):
 
 1. [`shiny`](http://cran.r-project.org/web/packages/shiny/index.html)
 2. [`shinyFiles`](http://cran.r-project.org/web/packages/shinyFiles/index.html)
-3. [`shinyAce`](http://cran.r-project.org/web/packages/shinyAce/index.html) 
-4. [`shinyBS`](http://cran.r-project.org/web/packages/shinyBS/index.html)
-5. [`rmarkdown`](http://cran.r-project.org/web/packages/rmarkdown/index.html)
-6. [`knitr`](http://cran.r-project.org/web/packages/knitr/index.html)
+3. [`shinyBS`](http://cran.r-project.org/web/packages/shinyBS/index.html)
+4. [`rmarkdown`](http://cran.r-project.org/web/packages/rmarkdown/index.html)
+5. [`knitr`](http://cran.r-project.org/web/packages/knitr/index.html)
+
+It also requires the installation of the development version of the following 
+package on GitHub: 
+
+1. [`shinyAce`](https://github.com/trestletech/shinyAce) 
 
 Finally, to render documents in various output formats (.html, .pdf, .docx), 
 `editR` uses the [`render`](http://www.rdocumentation.org/packages/rmarkdown/functions/render) 
