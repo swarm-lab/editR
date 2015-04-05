@@ -91,7 +91,7 @@ For more information about authoring Rmarkdown files, visit
 
 ---
 
-#### Author(s)
+#### Maintainer(s)
 Simon Garnier - [@sjmgarnier](https://twitter.com/sjmgarnier) - 
 <garnier@njit.edu>
 
