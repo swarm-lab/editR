@@ -11,15 +11,32 @@ $(document).ready(function() {
   });
   
   jQuery(function($){
+      $('#saveas').on('click', function(e) {
+          e.preventDefault();
+          $('#my_save_as')[0].click();
+      });
+  });
+  
+  jQuery(function($){
       $(document).keydown(function(e) {
+          if((e.ctrlKey || e.metaKey) && e.which == 78) {
+              e.preventDefault();
+              $('#new')[0].click();
+          };
+        
           if((e.ctrlKey || e.metaKey) && e.which == 79) {
               e.preventDefault();
               $('#my_open')[0].click();
           };
           
-           if((e.ctrlKey || e.metaKey) && e.which == 83) {
+          if((e.ctrlKey || e.metaKey) && e.which == 83) {
               e.preventDefault();
               $('#save').click();
+          };
+          
+          if((e.ctrlKey || e.metaKey) && e.shiftKey && e.which == 83) {
+              e.preventDefault();
+              $('#my_save_as').click();
           };
           
           if((e.ctrlKey || e.metaKey) && e.altKey && e.which == 69) {
@@ -38,8 +55,6 @@ $(document).ready(function() {
           };
       });
   });
-  
-  
   
   jQuery(function($){
       $('#auto_scroll').on('click', function() {
@@ -83,9 +98,19 @@ $(document).ready(function() {
     });
   });
   
+  Shiny.addCustomMessageHandler("saveas",
+    function(message) {
+      document.getElementById("saveas").click();
+    }
+  );
+  
+  Shiny.addCustomMessageHandler("saveas_new_file",
+    function(message) {
+      document.getElementById("my_save_as_new_file").click();
+    }
+  );
+  
 });
-
-
 
 
 

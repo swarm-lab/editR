@@ -3,6 +3,16 @@ Release notes
 
 ---
 
+- **0.2.0**:
+    - The UI has been rewritten to be compatible with the latest version of shiny (>=0.11) and with Twitter Bootstrap 3. 
+    - The UI and server now rely only on packages available on CRAN. Experimental packages are not necessary anymore, making the installation process easier and permitting submission to CRAN (coming soon).
+    - The editR function does not require the path to a rmarkdown file anymore. If no path is provided, editR will create a new temporary file that can be saved later from within the UI. 
+    - Added a "New file" menu to create new rmarkdown file from within the UI. 
+    - Added a "Save file as" menu to save new documents or save existing documents under a different name. 
+    - Added keyboard shortcuts for "New file" and "Save file as". 
+    - The structure of the app source code has been modified to be more modular and easier to modify/update. 
+---
+
 - **0.1.6**:
     - Added an experimental autoscroll function. Deactivated by default until it works well with documents containing many code chunks. 
     - Updated installation instructions and code to accomodate the transition of `shiny` from Bootstrap2 to Bootstrap3. 

@@ -2,20 +2,34 @@
 
 #rmd {
   position: absolute;
-  top: 45px;
+  top: 55px;
   bottom: 0;
+  left: 0%;
+  right: 50%;
   padding-right: 10px;
 }
 
 #knit_doc {
   position: absolute;
-  top: 45px;
+  top: 55px;
   bottom: 0;
+  left: 50%;
+  right: 0%;
   padding-left: 10px;
   overflow-y: scroll;
 }
 
 #my_open {
+  position: absolute;
+  left: -99em;
+}
+
+#my_save_as {
+  position: absolute;
+  left: -99em;
+}
+
+#my_save_as_new_file {
   position: absolute;
   left: -99em;
 }
@@ -42,6 +56,11 @@ tr.padding_bottom td {
 
 #editor_theme + div.modal-backdrop.fade.in {
   opacity: 0.001;
+}
+
+hr.sep {
+  padding: 0px;
+  margin: 2px;
 }
 
 /* Preview formatting */

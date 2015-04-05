@@ -1,0 +1,16 @@
+hidden <- list(shinyFilesButton("my_open", "Open file", "Please select a file", FALSE),
+               shinySaveButton("my_save_as", "Save file", 
+                               "Please select a folder", list(rmarkdown = c(".Rmd", ".md"))),
+               shinySaveButton("my_save_as_new_file", "Save file", 
+                               "Please select a folder", list(rmarkdown = c(".Rmd", ".md"))),
+               uiOutput("pf_plus"), 
+               uiOutput("pf_minus"), 
+               uiOutput("view"),
+               bsModal("k_s", "Keyboard shortcuts", trigger = "keys", keyboard),
+               bsModal("info", "About", trigger = "about", about),
+               uiOutput("editor_theme"),
+               bs3_dialog("save_current_diag", "Save currently opened file?", "new",
+                          actionButton("save_current", "Save"),
+                          actionButton("discard_current", "Discard"),
+                          tags$button("Close", type = "button", class = "btn btn-default", `data-dismiss` = "modal"))
+)

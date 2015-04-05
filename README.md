@@ -1,10 +1,22 @@
 editR
 =====
 
-**WARNING: if you have updated `shiny` to its most recent version on CRAN (>=0.11),
-you need to reinstall `editR` following the new instructions below. `shiny` was 
-upgraded to use Bootstrap3 instead of Bootstrap2 and this will create 
-inconsistencies in `editR`'s GUI if you don't reinstall it.**
+**IMPORTANT: the latest version of `editR` (>=0.2) has undergone important 
+modifications (see release notes below). The most important changes are the 
+following:
+
+- `editR` is now fully compatible with the latest version of `shiny` on 
+[CRAN](http://cran.r-project.org/) (>=0.11). `editR` was modified to support 
+[Twitter Bootstrap](http://getbootstrap.com/) version 3 instead of version 2 as 
+in the previous releases.
+
+- `editR` now relies entirely on packages available through [CRAN](http://cran.r-project.org/)
+and not on experimental packages as previously. This will facilitate the 
+installation process and it will make possible to submit the `editR` package to 
+[CRAN](http://cran.r-project.org/) in the near future. 
+
+As a consequence of these modifications I strongly recommend that you reinstall 
+`editR` following the new instructions below.**
 
 [Release notes](https://github.com/swarm-lab/editR/blob/master/RELEASE_NOTES.md)
 
@@ -18,33 +30,26 @@ result of your writing and coding. It also allows you to render your
 ![Screenshot of editR window](https://raw.githubusercontent.com/swarm-lab/editR/master/editR_screenshot.jpg)
 
 #### Installation
+Installing `editR` from this GitHub repository is now pretty straightforward. 
+Simply copying the following lines of code in your R terminal should to install 
+everything you need to run `editR` on your computer: 
+
+```{r}
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("swarm-lab/editR")
+
+library(editR)
+```
+
 `editR` requires the installation of the latest versions of following libraries 
 on [CRAN](http://cran.r-project.org/):
 
 1. [`shiny`](http://cran.r-project.org/web/packages/shiny/index.html)
 2. [`shinyFiles`](http://cran.r-project.org/web/packages/shinyFiles/index.html)
-3. [`rmarkdown`](http://cran.r-project.org/web/packages/rmarkdown/index.html)
-
-It also requires the installation of the development versions of 
-[`shinybootstrap2`](https://github.com/rstudio/shinybootstrap2)
-[`shinyAce`](https://github.com/trestletech/shinyAce) and 
-[`shinyBS`](https://github.com/ebailey78/shinyBS) 
-both hosted on [GitHub](https://www.github.com).
-
-The following lines of code should install everything you need to run `editR` on
-your computer: 
-
-```{r}
-install.packages(c("shiny", "shinyFiles", "rmarkdown"))
-
-if (!require("devtools")) install.packages("devtools")
-devtools::install_github('rstudio/shinybootstrap2')
-devtools::install_github("trestletech/shinyAce")
-devtools::install_github("ebailey78/shinyBS")
-devtools::install_github("swarm-lab/editR")
-
-library(editR)
-```
+3. [`shinyAce`](http://cran.r-project.org/web/packages/shinyAce/index.html) 
+4. [`shinyBS`](http://cran.r-project.org/web/packages/shinyBS/index.html)
+5. [`rmarkdown`](http://cran.r-project.org/web/packages/rmarkdown/index.html)
+6. [`knitr`](http://cran.r-project.org/web/packages/knitr/index.html)
 
 Finally, to render documents in various output formats (.html, .pdf, .docx), 
 `editR` uses the [`render`](http://www.rdocumentation.org/packages/rmarkdown/functions/render) 
@@ -66,8 +71,14 @@ with "path/to/file.Rmd" the path to a new or existing .Rmd (or .md) file. If thi
 is a new file, it will be created at this location. You can also open an existing
 file from within `editR` using the `File > Open file` menu. 
 
-At the moment, it is not possible to create new files from within `editR`. It 
-will come when/if [`shinyFiles`](https://github.com/thomasp85/shinyFiles) is updated.
+You can also open `editR` without providing a path to a new or existing .Rmd file.
+
+```{r}
+editR()
+```
+
+In this case a temporary new file will be created that can then be saved from 
+withing the user interface of `editR`. 
 
 For more information about authoring Rmarkdown files, visit 
 [http://rmarkdown.rstudio.com/](http://rmarkdown.rstudio.com/). 

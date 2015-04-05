@@ -2,20 +2,70 @@
 library(shiny)
 library(shinyAce)
 library(shinyFiles)
+library(shinyBS)
 library(knitr)
 library(rmarkdown)
 ### ###
 
 
-shinybootstrap2::withBootstrap2(function(input, output, session) {
+shinyServer(function(input, output, session) {
   
   ### Init logic###
-  md_file <- readChar(md_name, file.info(md_name)$size)
+  if (is.null(md_name)) {
+    template_path <- paste0(find.package("editR"), "/app/template.Rmd")
+    md_file <- readChar(template_path, file.info(template_path)$size)
+  } else {
+    md_file <- readChar(md_name, file.info(md_name)$size)
+  }
   md_bak <<- md_file
   isolate({updateAceEditor(session, "rmd", value = md_file)})
   react <- reactiveValues(view = "dual", refresh = -1)
   ### ###
   
+  ### New file logic ### 
+  observe({
+    if (input$save_current > 0) {
+      toggleModal(session, "save_current_diag", toggle = "close")
+      if (is.null(md_name)) {
+        session$sendCustomMessage("saveas_new_file", "message")
+      } else {
+        isolate({writeChar(input$rmd, con = md_name)})
+        setwd(tempdir())
+        template_path <- paste0(find.package("editR"), "/app/template.Rmd")
+        md_file <- readChar(template_path, file.info(template_path)$size)
+        isolate({updateAceEditor(session, "rmd", value = md_file)})
+      }
+    }
+  })
+  
+  shinyFileSave(input, "my_save_as_new_file", session = session, roots = c(Computer = "~/"))
+  
+  observe({
+    if (!is.null(input$my_save_as_new_file)) {
+      file <- as.character(parseSavePath(roots = c(Computer = "~/"), input$my_save_as_new_file)$datapath)
+      file <- normalizePath(file)
+      md_name <<- basename(file)
+      md_path <<- dirname(file)
+      setwd(md_path)
+      isolate({writeChar(input$rmd, con = md_name)})
+      
+      setwd(tempdir())
+      template_path <- paste0(find.package("editR"), "/app/template.Rmd")
+      md_file <- readChar(template_path, file.info(template_path)$size)
+      isolate({updateAceEditor(session, "rmd", value = md_file)})
+    }
+  })
+  
+  observe({
+    if (input$discard_current > 0) {
+      toggleModal(session, "save_current_diag", toggle = "close")
+      setwd(tempdir())
+      template_path <- paste0(find.package("editR"), "/app/template.Rmd")
+      md_file <- readChar(template_path, file.info(template_path)$size)
+      isolate({updateAceEditor(session, "rmd", value = md_file)})
+    }
+  })
+  ### ###
   
   ### Open file logic ###
   shinyFileChoose(input, 'my_open', session = session, 
@@ -23,7 +73,7 @@ shinybootstrap2::withBootstrap2(function(input, output, session) {
   
   observe({
     if (!is.null(input$my_open)) {
-      file <- as.character(parseFilePaths(roots = c(Computer = "~/"), input$my_open)[1, 4])
+      file <- as.character(parseFilePaths(roots = c(Computer = "~/"), input$my_open)$datapath)
       file <- normalizePath(file)
       
       md_name <<- basename(file)
@@ -161,9 +211,26 @@ shinybootstrap2::withBootstrap2(function(input, output, session) {
   
   
   ### Save file logic ###
+  shinyFileSave(input, "my_save_as", session = session, roots = c(Computer = "~/"))
+  
   observe({
-    if (input$save > 0 | !is.null(input$save_key)){
+    if (!is.null(input$my_save_as)) {
+      file <- as.character(parseSavePath(roots = c(Computer = "~/"), input$my_save_as)$datapath)
+      file <- normalizePath(file)
+      md_name <<- basename(file)
+      md_path <<- dirname(file)
+      setwd(md_path)
       isolate({writeChar(input$rmd, con = md_name)})
+    }
+  })
+  
+  observe({
+    if (input$save > 0){
+      if (is.null(md_name)) {
+        session$sendCustomMessage("saveas", "message")
+      } else {
+        isolate({writeChar(input$rmd, con = md_name)})
+      }
     }
   })
   ### ###

@@ -4,7 +4,7 @@
 \alias{editR}
 \title{Edit Rmarkdown files with instant preview}
 \usage{
-editR(file)
+editR(file = NULL)
 }
 \arguments{
 \item{file}{The path (as a character string) to an existing .Rmd/.md file, or to a new .Rmd/.md file. If the file does not exist, it will be created when the GUI starts.}

@@ -1,10 +1,10 @@
 Package: editR
 Type: Package
 Title: A basic Rmarkdown editor with instant preview
-Version: 0.1.6
-Date: 2015-01-18
+Version: 0.2.0
+Date: 2015-04-05
 Author: Simon Garnier <garnier@njit.edu>
 Maintainer: Simon Garnier <garnier@njit.edu>
 Description: editR is a basic Rmarkdown editor with instant previewing of your document. It allows you to create and edit Rmarkdown documents while instantly previewing the result of your writing and coding. It also allows you to render your Rmarkdown file in any format permitted by the 'rmarkdown' package. 
 License: GPL (>= 3)
-Imports: shiny (>= 0.10.2.2), shinyBS (>= 0.25), shinyAce (>= 0.2.0), shinyFiles (>= 0.4.0), rmarkdown (>= 0.4.2), shinybootstrap2
+Imports: shiny (>= 0.11.1), shinyBS (>= 0.61), shinyAce (>= 0.2.1), shinyFiles (>= 0.6.0), rmarkdown (>= 0.5.1), knitr (>= 1.9)
