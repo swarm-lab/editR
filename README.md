@@ -3,19 +3,19 @@ editR
 
 **IMPORTANT: the latest version of `editR` (>=0.2) has undergone important 
 modifications (see release notes below). The most important changes are the 
-following:
+following:**
 
-- `editR` is now fully compatible with the latest version of `shiny` on 
+**- `editR` is now fully compatible with the latest version of `shiny` on 
 [CRAN](http://cran.r-project.org/) (>=0.11). `editR` was modified to support 
 [Twitter Bootstrap](http://getbootstrap.com/) version 3 instead of version 2 as 
-in the previous releases.
+in the previous releases.**
 
-- `editR` now relies entirely on packages available through [CRAN](http://cran.r-project.org/)
+**- `editR` now relies entirely on packages available through [CRAN](http://cran.r-project.org/)
 and not on experimental packages as previously. This will facilitate the 
 installation process and it will make possible to submit the `editR` package to 
-[CRAN](http://cran.r-project.org/) in the near future. 
+[CRAN](http://cran.r-project.org/) in the near future.**
 
-As a consequence of these modifications I strongly recommend that you reinstall 
+**As a consequence of these modifications I strongly recommend that you reinstall 
 `editR` following the new instructions below.**
 
 [Release notes](https://github.com/swarm-lab/editR/blob/master/RELEASE_NOTES.md)
