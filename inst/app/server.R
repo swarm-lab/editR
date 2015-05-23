@@ -192,7 +192,7 @@ shinyServer(function(input, output, session) {
     } else {
       md_bak <<- md
     }
-    return(HTML(md))
+    return(withMathJax(HTML(md)))
   })
   ### ###
   
