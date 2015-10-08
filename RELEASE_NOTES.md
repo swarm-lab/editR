@@ -3,6 +3,11 @@ Release notes
 
 ---
 
+- **0.2.1**:
+    - Added live autocompletion in the editor. 
+
+---
+
 - **0.2.0**:
     - The UI has been rewritten to be compatible with the latest version of shiny (>=0.11) and with Twitter Bootstrap 3. 
     - The UI and server now rely (almost) only on packages available on CRAN. Most experimental packages used previously are not necessary anymore, making the installation process easier.
