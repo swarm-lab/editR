@@ -4,25 +4,33 @@
 \alias{editR}
 \title{Edit Rmarkdown files with instant preview}
 \usage{
-editR(file = NULL)
+editR(file = NULL, in.browser = ifelse(.Platform$OS.type == "windows", TRUE,
+  FALSE))
 }
 \arguments{
-\item{file}{The path (as a character string) to an existing .Rmd/.md file, or to a new .Rmd/.md file. If the file does not exist, it will be created when the GUI starts.}
+\item{file}{The path (as a character string) to an existing .Rmd/.md file, or
+to a new .Rmd/.md file. If the file does not exist, it will be created when the
+GUI starts.]}
+
+\item{in.browser}{If TRUE, the system's default web browser will be launched
+automatically after the app is started. If FALSE, it will launch the RStudio
+browser if available, otherwise it will default to the system's default web
+browser. Defaults to TRUE in Windows because of a problem with package
+\code{\link[shinyFiles:00Index]{shinyFiles}} in RStudio's browser.}
 }
 \value{
 This function does not return anything.
 }
 \description{
-This function creates a GUI to edit \code{\link[<rmarkdown>:<rmarkdown>-package]{Rmarkdown}}
+This function creates a GUI to edit \code{\link[rmarkdown:rmarkdown-package]{Rmarkdown}}
 documents and display an instant preview of the document as it is being
 written. Rmarkdown documents can be rendered directly from the GUI.
 }
 \details{
-If called from RStudio, it will open in the internal RStudio internet
-browser. If called from a terminal, it will open in your default internet
-browser. editR should work without any problem with the internal RStudio
-internet browser, as well as with recent versions of most internet browsers.
-It is likely to break with older versions.
+If called from RStudio on Mac and Linux, it will open in the internal
+RStudio browser. If called from a terminal or on Windows, it will open in your
+default internet browser. editR should work without any problem with recent
+versions of most internet browsers. It is likely to break with older versions.
 }
 \examples{
 # Create and edit a new Rmarkdown document in the current working directory

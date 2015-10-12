@@ -1,6 +1,6 @@
 #' Edit Rmarkdown files with instant preview
 #'
-#' This function creates a GUI to edit \code{\link[<rmarkdown>:<rmarkdown>-package]{Rmarkdown}} 
+#' This function creates a GUI to edit \code{\link[rmarkdown:rmarkdown-package]{Rmarkdown}} 
 #' documents and display an instant preview of the document as it is being 
 #' written. Rmarkdown documents can be rendered directly from the GUI. 
 #' 
@@ -8,10 +8,11 @@
 #' to a new .Rmd/.md file. If the file does not exist, it will be created when the 
 #' GUI starts.]
 #' 
-#' @launch.browser If TRUE, the system's default web browser will be launched 
-#' automatically after the app is started. Defaults to TRUE in Windows because of 
-#' a problem with shinyFiles in RStudio's browser. Defaults to TRUE in interactive 
-#' sessions as well. 
+#' @param in.browser If TRUE, the system's default web browser will be launched 
+#' automatically after the app is started. If FALSE, it will launch the RStudio
+#' browser if available, otherwise it will default to the system's default web 
+#' browser. Defaults to TRUE in Windows because of a problem with package 
+#' \code{\link[shinyFiles:00Index]{shinyFiles}} in RStudio's browser. 
 #' 
 #' @return This function does not return anything.
 #' 
@@ -28,8 +29,7 @@
 #' 
 #' @export
 #'
-editR <- function(file = NULL, launch.browser = ifelse(.Platform$OS.type == "windows", TRUE, 
-                                                       getOption("shiny.launch.browser", interactive()))) {
+editR <- function(file = NULL, in.browser = ifelse(.Platform$OS.type == "windows", TRUE, FALSE)) {
   require(tools)
   require(shiny)
   
