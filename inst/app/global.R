@@ -7,12 +7,7 @@ library(shinyBS)
 
 
 ### Set options ###
-.Options$editR$editor_font_size <- ifelse(is.null(.Options$editR$editor_font_size), 
-                                          14, .Options$editR$editor_font_size)
-.Options$editR$editor_theme <- ifelse(is.null(.Options$editR$editor_theme), 
-                                      "tomorrow", .Options$editR$editor_theme)
-.Options$editR$preview_font_size <- ifelse(is.null(.Options$editR$preview_font_size), 
-                                           1, .Options$editR$preview_font_size)
+editR:::.loadOptions()
 ### ###
 
 

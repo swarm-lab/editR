@@ -90,34 +90,38 @@ shinyServer(function(input, output, session) {
   ### View menu logic ###
   observe({
     if (input$ef_plus > 0) {
-      .Options$editR$editor_font_size <<- .Options$editR$editor_font_size + 1
-      isolate({updateAceEditor(session, "rmd", fontSize = .Options$editR$editor_font_size)})
+      editR:::.changeOptions("editor_font_size", getOption("editR")$editor_font_size + 1)
+      editR:::.saveOptions()
+      isolate({updateAceEditor(session, "rmd", fontSize = getOption("editR")$editor_font_size)})
     }
   })
   
   observe({
     if (input$ef_minus > 0) {
-      .Options$editR$editor_font_size <<- .Options$editR$editor_font_size - 1
-      isolate({updateAceEditor(session, "rmd", fontSize = .Options$editR$editor_font_size)})
+      editR:::.changeOptions("editor_font_size", getOption("editR")$editor_font_size - 1)
+      editR:::.saveOptions()
+      isolate({updateAceEditor(session, "rmd", fontSize = getOption("editR")$editor_font_size)})
     }
   })
   
   output$pf_plus <- renderUI({
     if (input$pf_plus > 0) {
-      .Options$editR$preview_font_size <<- .Options$editR$preview_font_size * 1.1
+      editR:::.changeOptions("preview_font_size", getOption("editR")$preview_font_size * 1.1)
+      editR:::.saveOptions()
     }
     
     tags$head(tags$style(
-      HTML(paste0("#knit_doc *{font-size: ", .Options$editR$preview_font_size, "em;}"))
+      HTML(paste0("#knit_doc *{font-size: ", getOption("editR")$preview_font_size, "em;}"))
     ))
   })
   
   output$pf_minus <- renderUI({
     if (input$pf_minus > 0) {
-      .Options$editR$preview_font_size <<- .Options$editR$preview_font_size * (1 / 1.1)
+      editR:::.changeOptions("preview_font_size", getOption("editR")$preview_font_size * (1 / 1.1))
+      editR:::.saveOptions()
       
       tags$head(tags$style(
-        HTML(paste0("#knit_doc *{font-size: ", .Options$editR$preview_font_size, "em;}"))
+        HTML(paste0("#knit_doc *{font-size: ", getOption("editR")$preview_font_size, "em;}"))
       ))
     }
   })
@@ -158,20 +162,17 @@ shinyServer(function(input, output, session) {
   
   observe({
     invalidateLater(50, session)
-    isolate({updateAceEditor(session, "rmd", theme = .Options$editR$editor_theme)})
-  })
-  
-  output$editor_theme <- renderUI({
-    bsModal("e_theme_mod", "Choose editor theme", trigger = "e_theme",
-            tags$div(width = "100%", align = "center",
-                     selectInput("e_theme_choice", "", choices = getAceThemes(), 
-                                 selected = .Options$editR$editor_theme))
-    )
+    isolate({updateAceEditor(session, "rmd", theme = getOption("editR")$editor_theme)})
   })
   
   observe({
-    .Options$editR$editor_theme <<- input$e_theme_choice
-    isolate({updateAceEditor(session, "rmd", theme = .Options$editR$editor_theme)})
+    if (!is.null(input$e_theme_choice)) {
+      editR:::.changeOptions("editor_theme", input$e_theme_choice)
+      editR:::.saveOptions()
+      isolate({
+        updateAceEditor(session, "rmd", theme = getOption("editR")$editor_theme)
+      })
+    }
   })
   ### ###
   
