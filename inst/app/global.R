@@ -3,6 +3,8 @@ library(shiny)
 library(shinyAce)
 library(shinyFiles)
 library(shinyBS)
+library(knitr)
+library(rmarkdown)
 ### ###
 
 
