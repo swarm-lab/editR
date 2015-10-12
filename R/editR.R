@@ -4,17 +4,23 @@
 #' documents and display an instant preview of the document as it is being 
 #' written. Rmarkdown documents can be rendered directly from the GUI. 
 #' 
-#' @param file The path (as a character string) to an existing .Rmd/.md file, or to a new .Rmd/.md file. If the file does not exist, it will be created when the GUI starts.
+#' @param file The path (as a character string) to an existing .Rmd/.md file, or 
+#' to a new .Rmd/.md file. If the file does not exist, it will be created when the 
+#' GUI starts.]
+#' 
+#' @launch.browser If TRUE, the system's default web browser will be launched 
+#' automatically after the app is started. Defaults to TRUE in Windows because of 
+#' a problem with shinyFiles in RStudio's browser. Defaults to TRUE in interactive 
+#' sessions as well. 
 #' 
 #' @return This function does not return anything.
 #' 
 #' @author Simon Garnier: \email{garnier@@njit.edu}, \link[https://twitter.com/sjmgarnier]{@@sjmgarnier}
 #' 
-#' @details If called from RStudio, it will open in the internal RStudio internet 
-#' browser. If called from a terminal, it will open in your default internet 
-#' browser. editR should work without any problem with the internal RStudio 
-#' internet browser, as well as with recent versions of most internet browsers. 
-#' It is likely to break with older versions.
+#' @details If called from RStudio on Mac and Linux, it will open in the internal 
+#' RStudio browser. If called from a terminal or on Windows, it will open in your 
+#' default internet browser. editR should work without any problem with recent 
+#' versions of most internet browsers. It is likely to break with older versions.
 #' 
 #' @examples
 #' # Create and edit a new Rmarkdown document in the current working directory
@@ -22,7 +28,8 @@
 #' 
 #' @export
 #'
-editR <- function(file = NULL) {
+editR <- function(file = NULL, launch.browser = ifelse(.Platform$OS.type == "windows", TRUE, 
+                                                       getOption("shiny.launch.browser", interactive()))) {
   require(tools)
   require(shiny)
   
@@ -43,6 +50,6 @@ editR <- function(file = NULL) {
   }
   
   app_path <- paste0(find.package("editR"), "/app")
-  runApp(app_path)
+  runApp(app_path, launch.browser = launch.browser)
 }
 
