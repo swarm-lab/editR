@@ -8,12 +8,6 @@
 #' to a new .Rmd/.md file. If the file does not exist, it will be created when the 
 #' GUI starts.]
 #' 
-#' @param in.browser If TRUE, the system's default web browser will be launched 
-#' automatically after the app is started. If FALSE, it will launch the RStudio
-#' browser if available, otherwise it will default to the system's default web 
-#' browser. Defaults to TRUE in Windows because of a problem with package 
-#' \code{\link[shinyFiles:00Index]{shinyFiles}} in RStudio's browser. 
-#' 
 #' @return This function does not return anything.
 #' 
 #' @author Simon Garnier: \email{garnier@@njit.edu}, \link[https://twitter.com/sjmgarnier]{@@sjmgarnier}
@@ -29,7 +23,7 @@
 #' 
 #' @export
 #'
-editR <- function(file = NULL, in.browser = ifelse(.Platform$OS.type == "windows", TRUE, FALSE)) {
+editR <- function(file = NULL) {
   require(tools)
   require(shiny)
   
@@ -50,6 +44,12 @@ editR <- function(file = NULL, in.browser = ifelse(.Platform$OS.type == "windows
   }
   
   app_path <- paste0(find.package("editR"), "/app")
-  runApp(app_path, launch.browser = launch.browser)
+  
+  if (.Platform$OS.type == "windows") {
+    runApp(app_path, launch.browser = TRUE)
+  } else {
+    runApp(app_path)
+  }
+  
 }
 

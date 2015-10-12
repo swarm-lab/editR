@@ -4,19 +4,12 @@
 \alias{editR}
 \title{Edit Rmarkdown files with instant preview}
 \usage{
-editR(file = NULL, in.browser = ifelse(.Platform$OS.type == "windows", TRUE,
-  FALSE))
+editR(file = NULL)
 }
 \arguments{
 \item{file}{The path (as a character string) to an existing .Rmd/.md file, or
 to a new .Rmd/.md file. If the file does not exist, it will be created when the
 GUI starts.]}
-
-\item{in.browser}{If TRUE, the system's default web browser will be launched
-automatically after the app is started. If FALSE, it will launch the RStudio
-browser if available, otherwise it will default to the system's default web
-browser. Defaults to TRUE in Windows because of a problem with package
-\code{\link[shinyFiles:00Index]{shinyFiles}} in RStudio's browser.}
 }
 \value{
 This function does not return anything.
