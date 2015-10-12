@@ -1,16 +1,6 @@
-### Load libraries ###
-library(shiny)
-library(shinyAce)
-library(shinyFiles)
-library(shinyBS)
-library(knitr)
-library(rmarkdown)
-### ###
-
-
 shinyServer(function(input, output, session) {
   
-  ### Init logic###
+  ### Init logic ###
   if (is.null(md_name)) {
     template_path <- paste0(find.package("editR"), "/app/template.Rmd")
     md_file <- readChar(template_path, file.info(template_path)$size)
@@ -39,11 +29,11 @@ shinyServer(function(input, output, session) {
   })
   
   shinyFileSave(input, "my_save_as_new_file", session = session, 
-                roots = c(root = normalizePath("~/")))
+                roots = c(root = normalizePath("~")))
   
   observe({
     if (!is.null(input$my_save_as_new_file)) {
-      file <- as.character(parseSavePath(roots = c(root = normalizePath("~/")), 
+      file <- as.character(parseSavePath(roots = c(root = normalizePath("~")), 
                                          input$my_save_as_new_file)$datapath)
       file <- normalizePath(file)
       md_name <<- basename(file)
@@ -71,12 +61,12 @@ shinyServer(function(input, output, session) {
   
   ### Open file logic ###
   shinyFileChoose(input, 'my_open', session = session, 
-                  roots = c(root = normalizePath("~/")), 
+                  roots = c(root = normalizePath("~")), 
                   filetypes = c('md', 'rmd'))
   
   observe({
     if (!is.null(input$my_open)) {
-      file <- as.character(parseFilePaths(roots = c(root = normalizePath("~/")), 
+      file <- as.character(parseFilePaths(roots = c(root = normalizePath("~")), 
                                           input$my_open)$datapath)
       file <- normalizePath(file)
       
@@ -217,11 +207,11 @@ shinyServer(function(input, output, session) {
   
   ### Save file logic ###
   shinyFileSave(input, "my_save_as", session = session, 
-                roots = c(root = normalizePath("~/")))
+                roots = c(root = normalizePath("~")))
   
   observe({
     if (!is.null(input$my_save_as)) {
-      file <- as.character(parseSavePath(roots = c(root = normalizePath("~/")), 
+      file <- as.character(parseSavePath(roots = c(root = normalizePath("~")), 
                                          input$my_save_as)$datapath)
       file <- normalizePath(file)
       md_name <<- basename(file)
