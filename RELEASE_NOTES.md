@@ -3,6 +3,11 @@ Release notes
 
 ---
 
+- **0.2.2**:
+    - Overhauled the options system to prevent settings reverting to default. 
+
+---
+
 - **0.2.1**:
     - Added live autocompletion in the editor. 
 
