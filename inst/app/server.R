@@ -38,11 +38,13 @@ shinyServer(function(input, output, session) {
     }
   })
   
-  shinyFileSave(input, "my_save_as_new_file", session = session, roots = c(Computer = "~/"))
+  shinyFileSave(input, "my_save_as_new_file", session = session, 
+                roots = c(Computer = path.expand("~/")))
   
   observe({
     if (!is.null(input$my_save_as_new_file)) {
-      file <- as.character(parseSavePath(roots = c(Computer = "~/"), input$my_save_as_new_file)$datapath)
+      file <- as.character(parseSavePath(roots = c(Computer = path.expand("~/")), 
+                                         input$my_save_as_new_file)$datapath)
       file <- normalizePath(file)
       md_name <<- basename(file)
       md_path <<- dirname(file)
@@ -69,11 +71,13 @@ shinyServer(function(input, output, session) {
   
   ### Open file logic ###
   shinyFileChoose(input, 'my_open', session = session, 
-                  roots = c(Computer = "~/"), filetypes = c('md', 'rmd'))
+                  roots = c(Computer = path.expand("~/")), 
+                  filetypes = c('md', 'rmd'))
   
   observe({
     if (!is.null(input$my_open)) {
-      file <- as.character(parseFilePaths(roots = c(Computer = "~/"), input$my_open)$datapath)
+      file <- as.character(parseFilePaths(roots = c(Computer = path.expand("~/")), 
+                                          input$my_open)$datapath)
       file <- normalizePath(file)
       
       md_name <<- basename(file)
@@ -212,11 +216,13 @@ shinyServer(function(input, output, session) {
   
   
   ### Save file logic ###
-  shinyFileSave(input, "my_save_as", session = session, roots = c(Computer = "~/"))
+  shinyFileSave(input, "my_save_as", session = session, 
+                roots = c(Computer = path.expand("~/")))
   
   observe({
     if (!is.null(input$my_save_as)) {
-      file <- as.character(parseSavePath(roots = c(Computer = "~/"), input$my_save_as)$datapath)
+      file <- as.character(parseSavePath(roots = c(Computer = path.expand("~/")), 
+                                         input$my_save_as)$datapath)
       file <- normalizePath(file)
       md_name <<- basename(file)
       md_path <<- dirname(file)
