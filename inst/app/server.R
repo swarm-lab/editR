@@ -39,11 +39,11 @@ shinyServer(function(input, output, session) {
   })
   
   shinyFileSave(input, "my_save_as_new_file", session = session, 
-                roots = c(Computer = path.expand("~/")))
+                roots = c(root = path.expand("~/")))
   
   observe({
     if (!is.null(input$my_save_as_new_file)) {
-      file <- as.character(parseSavePath(roots = c(Computer = path.expand("~/")), 
+      file <- as.character(parseSavePath(roots = c(root = path.expand("~/")), 
                                          input$my_save_as_new_file)$datapath)
       file <- normalizePath(file)
       md_name <<- basename(file)
@@ -71,12 +71,12 @@ shinyServer(function(input, output, session) {
   
   ### Open file logic ###
   shinyFileChoose(input, 'my_open', session = session, 
-                  roots = c(Computer = path.expand("~/")), 
+                  roots = c(root = path.expand("~/")), 
                   filetypes = c('md', 'rmd'))
   
   observe({
     if (!is.null(input$my_open)) {
-      file <- as.character(parseFilePaths(roots = c(Computer = path.expand("~/")), 
+      file <- as.character(parseFilePaths(roots = c(root = path.expand("~/")), 
                                           input$my_open)$datapath)
       file <- normalizePath(file)
       
@@ -217,11 +217,11 @@ shinyServer(function(input, output, session) {
   
   ### Save file logic ###
   shinyFileSave(input, "my_save_as", session = session, 
-                roots = c(Computer = path.expand("~/")))
+                roots = c(root = path.expand("~/")))
   
   observe({
     if (!is.null(input$my_save_as)) {
-      file <- as.character(parseSavePath(roots = c(Computer = path.expand("~/")), 
+      file <- as.character(parseSavePath(roots = c(root = path.expand("~/")), 
                                          input$my_save_as)$datapath)
       file <- normalizePath(file)
       md_name <<- basename(file)
