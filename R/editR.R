@@ -23,7 +23,7 @@
 #' 
 #' @export
 #'
-editR <- function(file = NULL) {
+editR <- function(file = NULL, port = NULL) {
   require(tools)
   require(shiny)
   
@@ -46,9 +46,17 @@ editR <- function(file = NULL) {
   app_path <- paste0(find.package("editR"), "/app")
   
   if (.Platform$OS.type == "windows") {
-    runApp(app_path, launch.browser = TRUE)
+    if(!is.null(port)){
+      runApp(app_path, port = port, launch.browser = TRUE)
+    }else{
+      runApp(app_path, launch.browser = TRUE)
+    }
   } else {
-    runApp(app_path)
+    if(!is.null(port)){
+      runApp(app_path, port = port)
+    }else{
+      runApp(app_path)
+    }
   }
   
 }
