@@ -1,0 +1,4 @@
+Name: editR - Open current file
+Description: Open current file in editor with editR.
+Binding: openCurrent
+Interactive: false
